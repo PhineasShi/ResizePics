@@ -41,25 +41,6 @@
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QPushButton" name="pushButton_inputDir">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <family>Microsoft YaHei UI Light</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>输入文件夹</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="0">
        <widget class="QPushButton" name="pushButton_outputDir">
         <property name="sizePolicy">
@@ -79,13 +60,22 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit_inputDir">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="pushButton_inputDir">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="font">
          <font>
           <family>Microsoft YaHei UI Light</family>
           <pointsize>10</pointsize>
          </font>
+        </property>
+        <property name="text">
+         <string>输入文件夹</string>
         </property>
        </widget>
       </item>
@@ -97,9 +87,38 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_inputDir">
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI Light</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="pushButton_resize">
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI Light</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>转换</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" rowspan="2">
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="1" column="0">
          <widget class="QLineEdit" name="lineEdit_row">
@@ -109,10 +128,45 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="maxLength">
+           <number>3</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
          </widget>
         </item>
         <item row="1" column="1">
          <widget class="QLabel" name="label_3">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei UI Light</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>pix</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLineEdit" name="lineEdit_col">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei UI Light</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="maxLength">
+           <number>3</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QLabel" name="label_4">
           <property name="font">
            <font>
             <family>Microsoft YaHei UI Light</family>
@@ -137,29 +191,6 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="2">
-         <widget class="QLineEdit" name="lineEdit_col">
-          <property name="font">
-           <font>
-            <family>Microsoft YaHei UI Light</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="QLabel" name="label_4">
-          <property name="font">
-           <font>
-            <family>Microsoft YaHei UI Light</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>pix</string>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="0">
          <widget class="QLabel" name="label">
           <property name="font">
@@ -174,19 +205,6 @@
          </widget>
         </item>
        </layout>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="pushButton_resize">
-        <property name="font">
-         <font>
-          <family>Microsoft YaHei UI Light</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>转换</string>
-        </property>
-       </widget>
       </item>
      </layout>
     </item>
