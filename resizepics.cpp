@@ -96,8 +96,16 @@ void ResizePics::on_pushButton_resize_clicked()
 				QString fileName = QString::number(fileNum) + "." + inputFourthLvDirList[k].suffix();
 				cv::Mat cv_input = cv::imread(fileName.toLocal8Bit().toStdString()),cv_output;
 				cv_input = cv::imread(inputFourthLvDirList[k].filePath().toLocal8Bit().toStdString());
+				if (ui.checkBox_Bin->isChecked())
+				{
+					cv::cvtColor(cv_input,cv_input,cv::COLOR_BGR2GRAY);
+				}
 				cv::Point2f corners[4] = { cv::Point2f(0,0),cv::Point2f(cv_input.cols - 1,0),cv::Point2f(cv_input.cols - 1,cv_input.rows - 1),cv::Point2f(0,cv_input.rows - 1) };
 				perspectiveTransform(cv_input, cv_output, corners, col, row);
+				if (ui.checkBox_EQ->isChecked())
+				{
+					equalize(cv_output, cv_output);
+				}
 				cv::imwrite(outputThirdLvDir.filePath(fileName).toLocal8Bit().toStdString(),cv_output);			
 			}
 		}
@@ -112,4 +120,15 @@ void ResizePics::perspectiveTransform(cv::Mat &input, cv::Mat &output, cv::Point
 	cv::Mat transform = cv::getPerspectiveTransform(corners, corners_trans);	
 	cv::warpPerspective(input, *temp, transform, temp->size());
 	output = *temp;
+}
+
+void ResizePics::equalize(cv::Mat & input, cv::Mat & output)
+{
+	cv::Mat channels[3];
+	cv::split(input, channels);
+	for (int i = 0; i < input.channels(); i++)
+	{
+		cv::equalizeHist(channels[i], channels[i]);
+	}
+	cv::merge(channels,input.channels(),output);
 }

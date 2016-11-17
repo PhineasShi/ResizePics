@@ -24,7 +24,6 @@ public slots:
 	void on_pushButton_inputDir_clicked();
 	void on_pushButton_outputDir_clicked();
 	void on_pushButton_resize_clicked();
-
 private:
 	Ui::ResizePicsClass ui;
 	QDir inputDir;
@@ -32,6 +31,7 @@ private:
 	int row;
 	int col;
 	void perspectiveTransform(cv::Mat &input, cv::Mat &output, cv::Point2f corners[], int width, int height);
+	void equalize(cv::Mat &input,cv::Mat &output);
 };
 
 #endif // RESIZEPICS_H
